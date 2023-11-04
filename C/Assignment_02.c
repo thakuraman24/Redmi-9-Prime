@@ -3,7 +3,6 @@
 /*
 Q1 Write a program to print unit digit of a given number
 
-
 int main()
 {
     printf("Enter the number whose unit digit you want to know\n");
@@ -16,8 +15,9 @@ int main()
 
 }
 
-Q2 Write a program to print a given number without its last digit.
 
+
+Q2 Write a program to print a given number without its last digit.
 
 int main()
 {
@@ -35,6 +35,7 @@ int main()
 Q3 Write a program to swap values of two int variables
 
 
+
 int main()
 {
     printf("Enter two varibles\n");
@@ -47,6 +48,8 @@ int main()
     printf("After swap\n a=%d & b=%d\n",a,b);
     return 0;
 }
+
+
 
 Q4 Write a program to swap values of two int variables without using a third variable.
 
@@ -63,25 +66,27 @@ int main()
     return 0;
 }
 
-Q5 Write a program to input a three-digit number and display the sum of the digits.
 
+
+Q5 Write a program to input a three-digit number and display the sum of the digits.
 
 int main()
 {
     printf("Enter a three digit number\n");
-    int num,rem1,rem2;
+    int num,ones,tens;
     scanf("%d",&num);
-    rem1=num%10;
+    ones=num%10;
     num=num/10;
-    rem2=num%10;
+    tens=num%10;
     num=num/10;
-    printf("Sum of %d, %d & %d is %d\n",num,rem2,rem1,num+rem2+rem1);
+    printf("Sum of %d, %d & %d is %d\n",num,tens,ones,num+tens+ones);
     
     return 0;
 }
 
-Q6 Write a program which takes a character as an input and displays its ASCII code.
 
+
+Q6 Write a program which takes a character as an input and displays its ASCII code.
 
 int main(){
     printf("Enter a character\n");
@@ -96,8 +101,55 @@ int main(){
 
 Q7 Write a program to find the position of first 1 in LSB.
 
+int find_position_of_first_1_in_lsb(unsigned int number) {
+  int position = 1;
+
+  while (number > 0) {
+    if ((number & 1) == 1) {
+      return position;
+    }
+
+    position++;
+    number >>= 1;
+  }
+
+  return -1;
+}
+
+int main() {
+  unsigned int number;
+
+  printf("Enter a number: ");
+  scanf("%u", &number);
+
+  int position = find_position_of_first_1_in_lsb(number);
+
+  if (position != -1) {
+    printf("The position of the first 1 in the LSB is: %d\n", position);
+  } else {
+    printf("The number does not contain any 1 bits.\n");
+  }
+
+  return 0;
+}
+
+
+
 Q8 Write a program to check whether the given number is even or odd using a bitwise
 operator.
+
+int main(){
+    printf("Enter a number to check for even or odd\n");
+    int num;
+    scanf("%d",&num);
+
+    if(num & 1)
+        printf("ODD");
+    else
+        printf("EVEN");
+
+    return 0;
+}
 
 
 
@@ -170,7 +222,24 @@ int main(){
 13 Write a program to take a three-digit number from the user and rotate its digits by
 one position towards the right.
 
+int main(){
+    printf("Enter a num\n");
+    int num,ones,tens,hundreds;
+    scanf("%d",&num);
+    ones=num%10;
+    tens=num%100;
+    tens=(tens-(tens%10))/10;
+    hundreds=(num-tens)/100;
+
+    num=(ones*100)+(tens*10)+hundreds;
+    printf("Number rotated one place right %d \n",num);
+
+    return 0;
+}
+
 */
+
+
 
 
 
